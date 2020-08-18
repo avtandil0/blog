@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "blog.DAL", "blog.DAL\blog.DAL.csproj", "{20C6A0F0-7273-41A5-A9C4-71C51B229C62}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "blog.BLL", "blog.BLL\blog.BLL.csproj", "{A8328306-8C0A-4A3C-A313-356E4AE1E7DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "blog.Web", "blog.Web\blog.Web.csproj", "{F17C4EA7-6C25-4110-823D-495792C6AF6C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{20C6A0F0-7273-41A5-A9C4-71C51B229C62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20C6A0F0-7273-41A5-A9C4-71C51B229C62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20C6A0F0-7273-41A5-A9C4-71C51B229C62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20C6A0F0-7273-41A5-A9C4-71C51B229C62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8328306-8C0A-4A3C-A313-356E4AE1E7DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8328306-8C0A-4A3C-A313-356E4AE1E7DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8328306-8C0A-4A3C-A313-356E4AE1E7DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8328306-8C0A-4A3C-A313-356E4AE1E7DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F17C4EA7-6C25-4110-823D-495792C6AF6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F17C4EA7-6C25-4110-823D-495792C6AF6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F17C4EA7-6C25-4110-823D-495792C6AF6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F17C4EA7-6C25-4110-823D-495792C6AF6C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {95F4E6BE-4EA7-4395-B102-E17A84E2FE37}
+	EndGlobalSection
+EndGlobal
