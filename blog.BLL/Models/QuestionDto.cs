@@ -10,7 +10,10 @@ namespace blog.BLL.Models
         public string AuthorName { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
+        public bool Status { get; set; }
         public DateTime? DateCreated { get; set; }
         public DateTime? DateDeleted { get; set; }
+
+        public ICollection<AnswerDto> Answers { get; set; }
     }
 }

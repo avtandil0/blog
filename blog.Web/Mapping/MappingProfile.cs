@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using blog.BLL.Models;
+using blog.BLL.Models.Video;
 using blog.DAL.Context.Entities;
 using System;
 using System.Collections.Generic;
@@ -15,12 +16,20 @@ namespace blog.Web.Mapping
         {
             CreateMap<Article, ArticleResponse>();
             CreateMap<Article, ArticleRequest>();
-            CreateMap<Article, ArticleDto>();
             CreateMap<ArticleResponse, Article>();
             CreateMap<ArticleRequest, Article>();
+            
+            CreateMap<Article, ArticleDto>();
             CreateMap<ArticleDto, Article>();
+
+            CreateMap<AnswerDto, Answer>();
+            CreateMap<Answer, AnswerDto>();
+
             CreateMap<QuestionDto, Question>();
             CreateMap<Question, QuestionDto>();
+
+            CreateMap<VideoDto, Video>();
+            CreateMap<Video, VideoDto>();
         }
     }
 }

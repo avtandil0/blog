@@ -76,19 +76,19 @@
         bottom
         color="deep-orange accent-4"
       ></v-progress-linear>
-      <v-text-field
+      <!-- <v-text-field
         flat
         solo-inverted
         hide-details
         prepend-inner-icon="mdi-magnify"
         label="Search"
         class="hidden-sm-and-down"
-      ></v-text-field>
+      ></v-text-field> -->
       <v-spacer></v-spacer>
 
       <v-menu offset-y>
         <template v-slot:activator="{ on, attrs }">
-          <v-btn v-bind="attrs" icon v-on="on">
+          <v-btn v-bind="attrs" icon v-on="on" v-if="currentUser">
             <v-icon>mdi-plus</v-icon>
           </v-btn>
         </template>
@@ -102,7 +102,7 @@
       <v-btn icon @click="changeCardsMode">
         <v-icon>mdi-apps</v-icon>
       </v-btn>
-      <v-switch v-model="theme" hide-details inset label="Theme Dark"></v-switch>
+      <v-switch v-model="theme" hide-details inset label="შავი ფონი"></v-switch>
 
       <!-- <v-tooltip bottom v-if="currentUser">
         <template v-slot:activator="{ on }">
@@ -208,7 +208,6 @@ export default {
   },
   computed: {
     loading() {
-      console.log("this.$store.state.grid", this.$store.state.loading);
       return this.$store.state.loading;
     }
   },

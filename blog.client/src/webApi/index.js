@@ -57,12 +57,39 @@ const deleteArticle = (id) => callApi({
     method: 'post',
 })
 
-const saveVideo = (data) => callApi({
-    url: '/api/Video/saveVideo',
+const addVideo = (data) => callApi({
+    url: '/api/Video/addVideo',
     method: 'post',
     data: {
         ...data
     }
+})
+
+const updateVideo = (data) => callApi({
+    url: '/api/Video/updateVideo',
+    method: 'put',
+    data: {
+        ...data
+    }
+})
+
+const getVideos = (obj) => callApi({
+    url: `/api/Video/getall`,
+    method: 'get',
+    params: {
+        ...obj
+    },
+})
+
+const getVideoById = (id) => callApi({
+    url: `/api/Video/getVideo/${id}`,
+    method: 'get',
+
+})
+
+const deleteVideo = (id) => callApi({
+    url: `/api/Video/deleteVideo/${id}`,
+    method: 'post',
 })
 
 const getQuestions = (obj) => callApi({
@@ -73,6 +100,12 @@ const getQuestions = (obj) => callApi({
     },
 })
 
+const getQuestionById = (id) => callApi({
+    url: `/api/Questions/getQuestion/${id}`,
+    method: 'get',
+
+})
+
 const addQuestion = (data) => callApi({
     url: '/api/Questions/addQuestion',
     method: 'post',
@@ -81,10 +114,52 @@ const addQuestion = (data) => callApi({
     }
 })
 
+const getAnswerByQuestionId = (id) => callApi({
+    url: `/api/Answer/getAnswer/${id}`,
+    method: 'get',
+
+})
+
+const addAnswer = (data) => callApi({
+    url: '/api/Answer/addAnswer',
+    method: 'post',
+    data: {
+        ...data
+    }
+})
+
+const deleteAnswer = (id) => callApi({
+    url: `/api/Answer/deleteAnswer/${id}`,
+    method: 'post',
+})
+
+const updateAnswer = (data) => callApi({
+    url: '/api/Answer/updateAnswer',
+    method: 'put',
+    data: {
+        ...data
+    }
+})
+
+const changeStatus = (id) => callApi({
+    url: `/api/Questions/changeStatus/${id}`,
+    method: 'post',
+})
+
 export default {
+    changeStatus,
+    updateAnswer,
+    deleteAnswer,
+    addAnswer,
+    getAnswerByQuestionId,
+    deleteVideo,
+    updateVideo,
+    getQuestionById,
+    getVideoById,
+    getVideos,
     addQuestion,
     getQuestions,
-    saveVideo,
+    addVideo,
     deleteArticle,
     updateArticle,
     getArticles,

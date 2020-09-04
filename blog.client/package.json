@@ -23,6 +23,7 @@
     "vue-editor-js": "^2.0.1",
     "vue-quill-editor": "^3.0.6",
     "vue-router": "^3.2.0",
+    "vue-social-sharing": "^3.0.0-beta.11",
     "vue-youtube-embed": "^2.2.2",
     "vuetify": "^2.2.11",
     "vuetify-toast-snackbar": "^0.6.1",

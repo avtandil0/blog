@@ -5,8 +5,7 @@ using System.Text;
 
 namespace blog.DAL.Repositories.Interfaces
 {
-    public interface IQuestionRepository : IRepositoryBase<Question>
+    public interface IAnswerRepository : IRepositoryBase<Answer>
     {
-        Question GetQuestionWithDetails(int questionId);
     }
 }

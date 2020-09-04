@@ -13,15 +13,35 @@
 
       <v-card-actions>
         <v-btn color="orange" text @click="goTo">სრულად</v-btn>
-        <v-row
-          align="center"
-          justify="end"
-          style="padding-right:15px"
-        >
+        <v-row align="center" justify="end" style="padding-right:15px">
           <v-icon class="mr-1" color="red lighten-1">mdi-heart</v-icon>
           <span class="subheading mr-2">256</span>
-          <v-icon class="mr-1" color="green">mdi-share-variant</v-icon>
-          <span class="subheading">45</span>
+
+          <!-- <v-icon class="mr-1" color="green">mdi-share-variant</v-icon> -->
+          <v-menu offset-y  z-index="0">
+            <template v-slot:activator="{ on, attrs }">
+              <v-icon class="mr-1" color="green" v-bind="attrs" v-on="on">mdi-share-variant</v-icon>
+            </template>
+            <ShareNetwork
+
+              v-for="network in networks"
+              :network="network.network"
+              :key="network.network"
+              :style="{backgroundColor: network.color}"
+              :url="locationPath + '/' + article.id"
+              :title="article.title"
+            >
+              <v-list-item style="background-color: rgb(204,204,204);">
+                <v-list-item-content>
+                  <v-list-item-title>{{ network.name }}</v-list-item-title>
+                </v-list-item-content>
+                <v-list-item-icon>
+                  <v-icon :style="{color: network.color}">mdi-{{ network.name.toLowerCase() }}</v-icon>
+                </v-list-item-icon>
+              </v-list-item>
+            </ShareNetwork>
+          </v-menu>
+          <!-- <span class="subheading">45</span> -->
         </v-row>
       </v-card-actions>
     </v-card>
@@ -35,30 +55,64 @@ export default {
   name: "Card",
   props: {
     article: {
-      title: null
-    }
+      title: null,
+    },
   },
 
   data: () => ({
-     prefixURL: constants.API_PREFIX,
+    prefixURL: constants.API_PREFIX,
+    likedArray: [],
+    locationPath: null,
+    networks: [
+      {
+        network: "facebook",
+        name: "Facebook",
+        icon: "fab fah fa-lg fa-facebook-f",
+        color: "#1877f2",
+      },
+      {
+        network: "linkedin",
+        name: "LinkedIn",
+        icon: "fab fah fa-lg fa-linkedin",
+        color: "#007bb5",
+      },
+      {
+        network: "pinterest",
+        name: "Pinterest",
+        icon: "fab fah fa-lg fa-pinterest",
+        color: "#bd081c",
+      },
+      {
+        network: "twitter",
+        name: "Twitter",
+        icon: "fab fah fa-lg fa-twitter",
+        color: "#1da1f2",
+      },
+    ],
   }),
   created() {
-    console.log("in card", this.article);
+    console.log("in card", this.article,window.location.href);
+    this.locationPath = window.location.href;
+    console.log('------------------',localStorage.getItem('likedArray'))
+    this.likedArray = localStorage.getItem('likedArray');
+    var arr = [];
+    arr.push(121)
+    localStorage.setItem('likedArray',JSON.stringify(arr))
   },
   methods: {
-    getImage(){
-      return this.prefixURL+'/' +this.article.imagePath
+    getImage() {
+      return this.prefixURL + this.article.imagePath;
       // return  "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTEmJIR0yQxjX-R1wJrQn4bL4VLSAZSeA3OS2EIEVxSLYGzntke&usqp=CAU"
     },
-    goTo(){
-      console.log('this.$router.path',this.$route.path, this.article.id )
+    goTo() {
+      console.log("this.$router.path", this.$route.path, this.article.id);
       var currentUser = localStorage.getItem("currentUser");
-      if(currentUser){
-        this.$router.push({ path: 'QuillEditor/' + this.article.id })
+      if (currentUser) {
+        this.$router.push({ path: "QuillEditor/" + this.article.id });
         return;
       }
-      this.$router.push({ path: this.$route.path +'/' + this.article.id })
-    }
-  }
+      this.$router.push({ path: this.$route.path + "/" + this.article.id });
+    },
+  },
 };
 </script>

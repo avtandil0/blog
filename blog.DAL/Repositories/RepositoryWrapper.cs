@@ -11,6 +11,7 @@ namespace blog.DAL.Repositories
         private RepositoryContext _repoContext;
         private IArticleRepository _article;
         private IQuestionRepository _question;
+        private IAnswerRepository _answer;
         private IVideoRepository _video;
 
         public IVideoRepository Video
@@ -23,6 +24,19 @@ namespace blog.DAL.Repositories
                 }
 
                 return _video;
+            }
+        }
+
+        public IAnswerRepository Answer
+        {
+            get
+            {
+                if (_answer == null)
+                {
+                    _answer = new AnswerRepository(_repoContext);
+                }
+
+                return _answer;
             }
         }
 

@@ -9,6 +9,7 @@ namespace blog.DAL.Repositories.Interfaces
         IArticleRepository Article { get; }
         IQuestionRepository Question { get; }
         IVideoRepository Video { get; }
+        IAnswerRepository Answer { get; }
         void Save();
     }
 }

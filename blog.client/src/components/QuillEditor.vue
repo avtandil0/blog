@@ -375,7 +375,7 @@ export default {
   flex-direction: column;
 
   .editor {
-    height: 40rem;
+    height: 50rem;
   }
 
   .output {

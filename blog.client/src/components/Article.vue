@@ -6,7 +6,7 @@
       </v-btn>
        <v-btn @click="deleteArticle" v-if="currentUser" class="ma-2" outlined large fab color="red">
         <v-icon>mdi-delete</v-icon>
-      </v-btn> -->
+      </v-btn>-->
       <h1>{{title}}</h1>
     </div>
     <div class="ql-editor" v-html="content"></div>
@@ -33,11 +33,11 @@ export default {
     this.$store.commit("loadData", false);
   },
   methods: {
-    editArticle(){
-      console.log('id', this.id)
+    editArticle() {
+      console.log("id", this.id);
     },
-    deleteArticle(){
-      console.log('id', this.id)
+    deleteArticle() {
+      console.log("id", this.id);
     }
   }
 };

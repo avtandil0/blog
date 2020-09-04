@@ -63,6 +63,12 @@ const routes = [
         props: (route) => ({ ...route.params }),
       },
       {
+        path: '/AddVideo/:id',
+        name: 'EditVideo',
+        component: AddVideo,
+        props: (route) => ({ ...route.params }),
+      },
+      {
         path: '/QuillEditor',
         name: 'QuillEditor',
         component: QuillEditor,

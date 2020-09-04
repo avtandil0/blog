@@ -103,6 +103,11 @@ export default {
 
       this.dialog = false;
       console.log("result", result);
+
+      const list = await this.$http.getQuestions({
+        pageIndex: 1
+      });
+      this.questions = list.items;
     }
   }
 };

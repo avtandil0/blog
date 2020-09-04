@@ -29,9 +29,12 @@ namespace blog.Web.Controllers
             {
                 return new Result(false, 0, "ატვირთეთ სურათი");
             }
-            var images = "images";
-            var webRootPath = _hostingEnv.WebRootPath;
+            var images = "StaticFiles\\images";
+            var webRootPath = _hostingEnv;
             var file = filesData.Files.FirstOrDefault();
+
+            //var folderName = Path.Combine("Resources", "Images");
+            //var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
 
             //var exists = System.IO.File.Exists(webRootPath + @"\\" + images + @"\\" + file.FileName);
             //if (exists)
@@ -39,7 +42,8 @@ namespace blog.Web.Controllers
             //    return new Result(false, 0, "ამ სახელით სურათი უკვე არსებობს");
             //}
 
-            var path = Path.Combine(webRootPath, images, file.FileName);
+            var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), images);
+            var path = Path.Combine(pathToSave, file.FileName);
 
             using (var stream = new FileStream(path, FileMode.Create))
             {

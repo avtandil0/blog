@@ -9,8 +9,11 @@ import axios from 'axios';
 import webApi from './webApi'
 import VueYouTubeEmbed from 'vue-youtube-embed'
 import VueGeolocation from 'vue-browser-geolocation';
+import VueSocialSharing from 'vue-social-sharing'
 
+Vue.use(VueSocialSharing);
 
+moment.locale('ka');
 Vue.use(VueGeolocation);
 Vue.use(VueYouTubeEmbed)
 
@@ -34,7 +37,7 @@ Vue.filter('dateToDayMonthYear', date => {
   }
   const momentDate = moment(date, 'YYYY-MM-DDTHH:mm:ss.SSSS')
 
-  return momentDate.isValid() ? momentDate.format('DD-MM-YYYY ') : null
+  return momentDate.isValid() ? momentDate.format('LL') : null
 })
 
 new Vue({
