@@ -83,7 +83,7 @@
         prepend-inner-icon="mdi-magnify"
         label="Search"
         class="hidden-sm-and-down"
-      ></v-text-field> -->
+      ></v-text-field>-->
       <v-spacer></v-spacer>
 
       <v-menu offset-y>
@@ -134,7 +134,7 @@
 export default {
   name: "Home",
   props: {
-    source: String
+    source: String,
   },
   data: () => ({
     currentUser: null,
@@ -142,20 +142,23 @@ export default {
     dialog: false,
     drawer: null,
     rating: null,
-    addMenu: [{ title: "სტატია", path: 'QuillEditor' }, { title: "ვიდეო", path: 'AddVideo' }],
+    addMenu: [
+      { title: "სტატია", path: "QuillEditor" },
+      { title: "ვიდეო", path: "AddVideo" },
+    ],
     items: [
       { icon: "mdi-home", text: "Home", value: "Main", categoryId: "111" },
       {
         icon: "mdi-cellphone-link",
         text: "App downloads",
         value: "Category1",
-        categoryId: "2"
+        categoryId: "2",
       },
       {
         icon: "mdi-cog",
         text: "Settings",
         value: "Category2",
-        categoryId: "333"
+        categoryId: "333",
       },
 
       {
@@ -166,28 +169,28 @@ export default {
         children: [
           { icon: " mdi-check-all", text: "Import" },
           { icon: "mdi-airballoon", text: "Undo changes" },
-          { icon: "mdi-video", text: "Other contacts" }
-        ]
+          { icon: "mdi-video", text: "Other contacts" },
+        ],
       },
       { icon: "mdi-contacts", text: "Contacts" },
       {
         icon: "mdi-play-circle",
         text: "Video",
         value: "Videos",
-        categoryId: "444"
+        categoryId: "444",
       },
       {
         icon: "mdi-help-circle",
         text: "Questions",
         value: "Questions",
-        categoryId: "777"
-      }
-    ]
+        categoryId: "777",
+      },
+    ],
   }),
   methods: {
     goToAddPage(item) {
       console.log("item", item);
-      this.$router.push(item.path)
+      this.$router.push(item.path);
     },
     changeCardsMode() {
       this.$store.commit("changeCardsMode");
@@ -201,7 +204,7 @@ export default {
       location.reload();
 
       // this.$router.push("/Login");
-    }
+    },
   },
   mounted() {
     this.$vuetify.theme.isDark = localStorage.theme == "dark" ? true : false;
@@ -209,13 +212,13 @@ export default {
   computed: {
     loading() {
       return this.$store.state.loading;
-    }
+    },
   },
   watch: {
     theme() {
       this.$vuetify.theme.isDark = localStorage.theme == "dark" ? false : true;
       localStorage.theme = localStorage.theme == "dark" ? "light" : "dark";
-    }
+    },
     // currentUser() {
     //   this.currentUser = localStorage.getItem("currentUser");
     // }
@@ -223,6 +226,9 @@ export default {
   created() {
     console.log("localStorage.grid11111", localStorage.grid);
     this.currentUser = localStorage.getItem("currentUser");
-  }
+    if (!localStorage.getItem("likedArray")) {
+      localStorage.setItem("likedArray", JSON.stringify([]));
+    }
+  },
 };
 </script>
